@@ -82,17 +82,6 @@
       >
         <a
           href="/services"
-          class="px-6 py-2 bg-sky-500 text-white font-semibold uppercase
-                 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out
-                 hover:bg-sky-600 hover:scale-105 hover:shadow-sky-400/50
-                 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 text-sm"
-          data-aos="zoom-in"
-          data-aos-delay="1100"
-        >
-          Book Online
-        </a>
-        <a
-          href="#services"
           class="px-6 py-2 border-2 border-sky-500 text-sky-400
                  font-semibold uppercase rounded-lg shadow-md transform
                  transition-all duration-300 ease-in-out hover:bg-sky-500
@@ -103,218 +92,6 @@
         >
           Our Services
         </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- Static Services Section with AlpineJS (No changes needed here) --}}
-<section
-  id="services"
-  x-data="{ activeTab: 'repair' }"
-  class="py-16 md:py-24 bg-black text-slate-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 uppercase" data-aos="fade-up" data-aos-duration="600">
-        Explore Our <span class="text-sky-400">Services</span>
-      </h2>
-      <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-        Choose the perfect detailing package for your vehicle's needs.
-      </p>
-    </div>
-
-    <nav class="flex flex-wrap justify-center space-x-2 sm:space-x-4 border-b border-slate-700 mb-10 md:mb-12" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-      <button
-        @click="activeTab = 'repair'"
-        :class="activeTab === 'repair' ? 'border-sky-500 text-sky-400' : 'border-transparent text-slate-400 hover:text-sky-400 hover:border-sky-600/50'"
-        class="px-4 py-3 sm:px-6 sm:py-3 uppercase font-semibold transition-all duration-200 border-b-2 focus:outline-none">
-        Premium Basic Wash
-      </button>
-      <button
-        @click="activeTab = 'maintenance'"
-        :class="activeTab === 'maintenance' ? 'border-sky-500 text-sky-400' : 'border-transparent text-slate-400 hover:text-sky-400 hover:border-sky-600/50'"
-        class="px-4 py-3 sm:px-6 sm:py-3 uppercase font-semibold transition-all duration-200 border-b-2 focus:outline-none">
-        Full Detail (Interior + Exterior)
-      </button>
-      <button
-        @click="activeTab = 'detailing'"
-        :class="activeTab === 'detailing' ? 'border-sky-500 text-sky-400' : 'border-transparent text-slate-400 hover:text-sky-400 hover:border-sky-600/50'"
-        class="px-4 py-3 sm:px-6 sm:py-3 uppercase font-semibold transition-all duration-200 border-b-2 focus:outline-none">
-        Deep Interior & Exterior
-      </button>
-      <button
-        @click="activeTab = 'diagnostic'"
-        :class="activeTab === 'diagnostic' ? 'border-sky-500 text-sky-400' : 'border-transparent text-slate-400 hover:text-sky-400 hover:border-sky-600/50'"
-        class="px-4 py-3 sm:px-6 sm:py-3 uppercase font-semibold transition-all duration-200 border-b-2 focus:outline-none">
-        Detail + Professional Polish
-      </button>
-    </nav>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 md:gap-16">
-      <div class="w-full relative" data-aos="fade-right" data-aos-duration="700" data-aos-delay="300" data-aos-offset="200">
-        <template x-if="activeTab === 'repair'">
-          <div
-            x-show="activeTab === 'repair'"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform translate-y-4"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-200 absolute w-full"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-4"
-            class="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 shadow-xl space-y-4 text-center lg:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-100">Premium Basic Wash</h3>
-            <p class="text-sky-400 font-semibold mb-4 text-lg">$175 ·</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div class="space-y-1 bg-gray-700 p-3 rounded-md">
-                <p class="font-semibold text-slate-200">Inspection</p>
-              </div>
-              <div class="space-y-1 bg-gray-700 p-3 rounded-md">
-                <p class="font-semibold text-slate-200">Exterior Wash</p>
-              </div>
-              <div class="space-y-1 bg-gray-700 p-3 rounded-md">
-                <p class="font-semibold text-slate-200">Dry & Shine</p>
-              </div>
-              <div class="space-y-1 bg-gray-700 p-3 rounded-md">
-                <p class="font-semibold text-slate-200">Interior Detail</p>
-              </div>
-            </div>
-          </div>
-        </template>
-
-        <template x-if="activeTab === 'maintenance'">
-          <div
-            x-show="activeTab === 'maintenance'"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform translate-y-4"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-200 absolute w-full"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-4"
-            class="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 shadow-xl space-y-4 text-center lg:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-100">Full Detail (Interior + Exterior)</h3>
-            <p class="text-sky-400 font-semibold mb-4 text-lg">$280 ·</p>
-            <ul class="space-y-2 text-sm text-slate-300">
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Assessment (15 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Deep Cleaning (45 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Protection (60 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Interior Detail (40 min)</li>
-            </ul>
-          </div>
-        </template>
-
-        <template x-if="activeTab === 'detailing'">
-          <div
-            x-show="activeTab === 'detailing'"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform translate-y-4"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-200 absolute w-full"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-4"
-            class="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 shadow-xl space-y-4 text-center lg:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-100">Deep Interior & Exterior</h3>
-            <p class="text-sky-400 font-semibold mb-4 text-lg">$320 ·</p>
-            <ul class="space-y-2 text-sm text-slate-300">
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Inspection (15 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Decontamination (60 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Treatment (75 min)</li>
-              <li class="flex items-center bg-gray-700 p-3 rounded-md"><svg class="w-4 h-4 mr-2 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>Final Detail (60 min)</li>
-            </ul>
-          </div>
-        </template>
-
-        <template x-if="activeTab === 'diagnostic'">
-          <div
-            x-show="activeTab === 'diagnostic'"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform translate-y-4"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-200 absolute w-full"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-4"
-            class="bg-gray-800 border border-gray-700 rounded-xl p-6 md:p-8 shadow-xl space-y-4 text-center lg:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-100"> Detail + Professional Polish</h3>
-            <p class="text-sky-400 font-semibold mb-4 text-lg">$390 ·</p>
-            <div class="space-y-2 text-sm">
-              <p class="font-semibold text-slate-200 bg-gray-700 p-3 rounded-md">Polish (90 min)</p>
-              <p class="font-semibold text-slate-200 bg-gray-700 p-3 rounded-md">Ceramic Coat (75 min)</p>
-              <p class="font-semibold text-slate-200 bg-gray-700 p-3 rounded-md">Executive Detail (60 min)</p>
-            </div>
-          </div>
-        </template>
-      </div>
-
-      <div class="w-full flex justify-center lg:justify-end relative min-h-[250px] md:min-h-[350px]" data-aos="fade-left" data-aos-duration="700" data-aos-delay="300" data-aos-offset="200">
-
-        <template x-if="activeTab === 'repair'">
-          <img
-            x-show="activeTab === 'repair'"
-            x-transition:enter="transition ease-out duration-300 delay-100"
-            x-transition:enter-start="opacity-0 transform scale-95"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-200 absolute"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-95"
-            src="{{ asset('why/basic.png') }}" alt="Premium Wash" class="rounded-lg shadow-xl shadow-sky-900/40 max-w-md w-full object-cover" />
-        </template>
-        <template x-if="activeTab === 'maintenance'">
-          <img
-            x-show="activeTab === 'maintenance'"
-            x-transition:enter="transition ease-out duration-300 delay-100"
-            x-transition:enter-start="opacity-0 transform scale-95"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-200 absolute"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-95"
-            src="{{ asset('why/premwash.jpg') }}" alt="Mobile Detailing" class="rounded-lg shadow-xl shadow-sky-900/40 max-w-md w-full object-cover" />
-        </template>
-        <template x-if="activeTab === 'detailing'">
-          <img
-            x-show="activeTab === 'detailing'"
-            x-transition:enter="transition ease-out duration-300 delay-100"
-            x-transition:enter-start="opacity-0 transform scale-95"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-200 absolute"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-95"
-            src="{{ asset('why/CamionetaNegra.webp') }}"
-            alt="Deep Cleaning"
-            class="rounded-lg shadow-xl shadow-sky-900/40 max-w-md w-full h-64 object-cover"
-          />
-        </template>
-
-        <template x-if="activeTab === 'diagnostic'">
-          <img
-            x-show="activeTab === 'diagnostic'"
-            x-transition:enter="transition ease-out duration-300 delay-100"
-            x-transition:enter-start="opacity-0 transform scale-95"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-200 absolute"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-95"
-            src="{{ asset('why/carDoble.webp') }}"
-            alt="Detail + Polish"
-            class="rounded-lg shadow-xl shadow-sky-900/40 max-w-md w-full h-64 object-cover"
-          />
-        </template>
-
       </div>
     </div>
   </div>
@@ -368,139 +145,6 @@
   </div>
 </section>
 
-
-<section id="company-presentation-video" class="bg-black text-slate-200 py-16 md:py-20">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-10 md:mb-16 max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-sky-400 mb-4" data-aos="fade-up">
-        Discover Our Essence
-      </h2>
-      <p class="text-lg sm:text-xl text-slate-400 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-        Take a moment to see what drives us at SUMACC. This is a glimpse into our passion for perfection and commitment to exceptional car care.
-      </p>
-    </div>
-    <div class="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto" data-aos="zoom-in-up" data-aos-delay="200" data-aos-duration="800">
-      <div
-        class="relative aspect-video rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl shadow-sky-800/40 ring-1 ring-slate-700/50"
-        x-data="{ playing: false }">
-        <video
-          x-ref="video"
-          @click="if ($event.target === $refs.video) { playing ? $refs.video.pause() : $refs.video.play() }" {{-- Solo play/pausa si se hace clic en el video, no en los controles (si se muestran) --}}
-          @play="playing = true"
-          @pause="playing = false"
-          :controls="playing"
-          src="{{ asset('media/presentation.mp4') }}"
-          poster="{{ asset('media/presentation_video.png') }}" {{-- SUGERENCIA: Añade un poster --}}
-          class="w-full h-full object-cover cursor-pointer"
-          preload="metadata" {{-- Para cargar metadatos como duración y dimensiones --}}>
-          Your browser does not support the <code>video</code> element.
-        </video>
-
-        <button
-          x-show="!playing"
-          @click="$refs.video.play()"
-          aria-label="Play video"
-          class="absolute inset-0 flex items-center justify-center w-full h-full
-                 text-sky-400/90 text-6xl sm:text-7xl md:text-8xl
-                 transition-all duration-300 ease-in-out
-                 hover:text-sky-300 hover:bg-black/30 focus:outline-none group">
-          <svg class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 transform transition-transform duration-300 group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.625 3.125A1.125 1.125 0 0 1 9 15.125V8.875c0-.87.988-1.406 1.65-.983l5.625 3.125Z" clip-rule="evenodd" />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="text-center mt-10 md:mt-12" data-aos="fade-up" data-aos-delay="300">
-      <a href="#contact" class="inline-block px-8 py-3 bg-sky-500 text-white text-sm font-semibold uppercase rounded-lg shadow-lg shadow-sky-500/30
-                                 transform transition-all duration-300 ease-in-out
-                                 hover:bg-sky-600 hover:scale-105 active:scale-95">
-        Contact Us For Details
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<section id="customer-reviews" class="bg-black text-slate-200 py-16 md:py-20 border-t border-slate-800" x-data="{ current: 0, reviews: 5 }" x-init="setInterval(() => { current = (current + 1) % reviews }, 7000)">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-4xl sm:text-5xl font-bold text-sky-400" data-aos="fade-up">
-        What Our Clients Say
-      </h2>
-      <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-        We take pride in providing exceptional service. Here's what some of our happy customers have to say about SUMACC.
-      </p>
-    </div>
-
-    <div class="relative overflow-hidden">
-      <div class="flex transition-transform duration-700 ease-in-out"
-        :style="'transform: translateX(-' + (current * 100) + '%)'"
-        style="width: 500%">
-        <template x-for="(review, index) in [
-          {
-            name: 'Marrisa Mora',
-            date: '2 Weeks Ago',
-            text: 'My Rav4 had needed a deep clean since I moved to Seattle six months ago. I found Sumacc this morning and reached out to ask about pricing and availability. Super happy I did!'
-          },
-          {
-            name: 'Yung Thach',
-            date: '1 Month Ago',
-            text: 'I contacted Sumacc on WhatsApp and got a fast reply. He came the same day and did a great job. I just needed one area cleaned where my cat had an accident. No more smell!'
-          },
-          {
-            name: 'Rietta S',
-            date: '3 Days Ago',
-            text: 'Got my car fully detailed today and it looks amazing. It was a big job and he was very thorough. He arrived on time and I’ve already scheduled our second vehicle for Friday!'
-          },
-          {
-            name: 'H',
-            date: '1 Week Ago',
-            text: 'Great service! Second time I used them to hand wash my car interior and exterior (first time to get rid of vomit smell as well)... They came to my place on time and they finished in 2 hrs. Car looks and smells great both times.'
-          },
-          {
-            name: 'Lindsay S',
-            date: '1 Day Ago',
-            text: 'Got me in same day. They did an excellent job restoring my car to a like-new condition despite the many crumbs and spills left by my kids.'
-          }
-        ]" :key="index">
-          <div class="min-w-full px-4">
-            <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-sky-900/20 p-6 flex flex-col h-full">
-              <div class="mb-4">
-                <h5 class="font-semibold text-slate-100" x-text="review.name"></h5>
-                <p class="text-xs text-slate-500" x-text="review.date"></p>
-              </div>
-              <div class="flex items-center mb-3">
-                <template x-for="i in 5">
-                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </template>
-              </div>
-              <p class="text-slate-300 leading-relaxed text-sm flex-grow" x-text="review.text"></p>
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-
-    <div class="flex justify-center gap-2 mt-6">
-      <template x-for="(dot, i) in reviews" :key="i">
-        <button @click="current = i"
-          class="w-3 h-3 rounded-full"
-          :class="current === i ? 'bg-sky-400' : 'bg-slate-600'"></button>
-      </template>
-    </div>
-
-    <div class="text-center mt-12 md:mt-16" data-aos="fade-up" data-aos-delay="500">
-      <a href="https://g.co/kgs/NJo3rQr" target="_blank" rel="noopener noreferrer"
-        class="inline-block px-8 py-3.5 bg-transparent border-2 border-sky-500 text-sky-400 text-sm font-semibold uppercase rounded-lg
-               transform transition-all duration-300 ease-in-out
-               hover:bg-sky-500 hover:text-black hover:shadow-lg hover:shadow-sky-500/30 active:scale-95">
-        Read More Reviews on Google
-      </a>
-    </div>
-  </div>
-</section>
 
 
 <section id="brands" class="bg-black py-16 md:py-20">
@@ -562,6 +206,131 @@
     animation-play-state: paused;
   }
 </style>
+
+{{-- ================================================
+    PRICING SECTION - DISEÑO MINIMALISTA MEJORADO
+    ================================================ --}}
+<section id="pricing" class="bg-black text-slate-200 py-12 md:py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-100 mb-3">
+        Our <span class="text-sky-400">Services</span>
+      </h2>
+      <p class="text-slate-400 text-sm max-w-md mx-auto">
+        Quick booking with essential details. Select and book in seconds.
+      </p>
+    </div>
+
+    @if(count($packages) > 0)
+      <div class="space-y-8">
+        @foreach ($packages as $package)
+          <div>
+            {{-- Category Header --}}
+            <h3 class="text-lg font-semibold text-slate-100 mb-4 pl-2 border-l-4 border-sky-500">
+              {{ $package['name'] }}
+            </h3>
+
+            {{-- Services Grid --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              @foreach ($package['services'] as $service)
+                <div class="bg-slate-800/30 border border-slate-700 rounded-lg p-4 hover:border-sky-400/50 transition-all duration-200 group cursor-pointer hover:shadow-lg hover:shadow-sky-900/10"
+                     onclick="window.location='{{ route('booking.step1', ['service_id' => $service['id']]) }}'">
+                  
+                  {{-- Service Image --}}
+                  @if(!empty($service['image_path']))
+                  <div class="relative h-32 mb-3 rounded overflow-hidden">
+                    <img 
+                      src="{{ asset($service['image_path']) }}" 
+                      alt="{{ $service['name'] }}" 
+                      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+                    
+                    {{-- Exterior/Interior Badges --}}
+                    <div class="absolute top-2 left-2 flex gap-1">
+                      @if($service['has_exterior'])
+                        <span class="bg-blue-500/90 text-white text-xs px-1.5 py-0.5 rounded">EXT</span>
+                      @endif
+                      @if($service['has_interior'])
+                        <span class="bg-emerald-500/90 text-white text-xs px-1.5 py-0.5 rounded">INT</span>
+                      @endif
+                    </div>
+                  </div>
+                  @endif
+
+                  {{-- Service Name --}}
+                  <h4 class="text-base font-semibold text-slate-100 group-hover:text-sky-300 transition-colors mb-2 line-clamp-1">
+                    {{ $service['name'] }}
+                  </h4>
+
+                  {{-- Price Badge --}}
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="bg-sky-900/40 text-sky-300 text-xs font-medium px-2 py-1 rounded">
+                      From ${{ number_format($service['min_price'], 0) }}
+                    </div>
+                    
+                    {{-- More Prices Indicator --}}
+                    @if($service['has_more_prices'])
+                    <div class="text-xs text-slate-400 flex items-center" title="{{ $service['total_vehicle_types'] }} vehicle types available">
+                      +{{ $service['total_vehicle_types'] - 2 }} more
+                      <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
+                    @endif
+                  </div>
+
+                  {{-- Vehicle Prices --}}
+                  <div class="text-xs text-slate-300 mb-3 font-medium">
+                    {{ $service['price_display'] }}
+                  </div>
+
+                  {{-- Key Features --}}
+                  @if(!empty($service['features']))
+                    <ul class="space-y-1 mb-3">
+                      @foreach ($service['features'] as $feature)
+                        <li class="text-xs text-slate-300 flex items-start">
+                          <span class="text-sky-400 mr-1 text-xs">•</span>
+                          <span class="flex-1 line-clamp-2">{{ $feature }}</span>
+                        </li>
+                      @endforeach
+                    </ul>
+                  @endif
+
+                  {{-- Book Button --}}
+                  <button class="w-full bg-sky-500 text-white text-xs font-medium py-2 px-3 rounded hover:bg-sky-600 transition-colors group-hover:bg-sky-600 flex items-center justify-center">
+                    Book Now
+                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @else
+      <div class="text-center py-8">
+        <div class="bg-slate-800/50 rounded-lg p-6 max-w-md mx-auto">
+          <p class="text-slate-400 text-sm">No services available at the moment.</p>
+        </div>
+      </div>
+    @endif
+
+    {{-- Quick CTA --}}
+    <div class="text-center mt-10">
+      <p class="text-slate-400 text-sm mb-4">Need a custom solution?</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <a href="https://wa.link/gemzk6" target="_blank" class="inline-flex items-center bg-emerald-600 text-white text-sm px-4 py-2 rounded hover:bg-emerald-700 transition-colors">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.864 3.488"/>
+          </svg>
+          WhatsApp Quote
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="about" class="bg-black text-slate-200 py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 xl:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -673,7 +442,7 @@
       <div class="min-h-[360px] md:min-h-[450px] xl:min-h-[480px]">
         <div x-show="activeTab === 'wheels'" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300 absolute inset-0" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 grid-flow-row-dense">
           <div @click="currentVideoUrl = '{{ asset('extern/weels/weels.mp4') }}'; playModalVideo()" class="col-span-2 row-span-2 relative rounded-xl overflow-hidden cursor-pointer group aspect-[16/10] shadow-lg" data-aos="zoom-in-up" data-aos-delay="100">
-            <img src="{{ asset('media/presentation_video.png') }}" alt="Wheels Detailing Main Video" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            <img src="{{ asset('media/wheels1.png') }}" alt="Wheels Detailing Main Video" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
               <svg class="w-16 h-16 text-sky-300 group-hover:text-sky-200 transform group-hover:scale-110 transition-all duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.625 3.125A1.125 1.125 0 0 1 9 15.125V8.875c0-.87.988-1.406 1.65-.983l5.625 3.125Z" />
@@ -863,163 +632,34 @@
   </div>
 </section>
 
-{{-- ================================================
-    PRICING SECTION - CORREGIDO Y DINÁMICO
-    ================================================ --}}
-<section id="pricing" class="bg-black text-slate-200 py-16 md:py-20">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-4xl sm:text-5xl font-bold text-sky-400" data-aos="fade-up">
-        Our Detailing Packages
-      </h2>
-      <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-        Choose the perfect plan for your vehicle. Quality and shine, guaranteed.
-      </p>
-    </div>
 
-    @php
-    // Simulación de datos que vendrían de tu controlador
-    $packages = [
-        [
-            'name' => 'Premium Basic Wash',
-            'price' => 175,
-            'features' => [
-                ['name' => 'Exterior hand wash'],
-                ['name' => 'General interior vacuuming'],
-                ['name' => 'Glass, dashboard, and door cleaning']
-            ],
-            'description' => 'Ideal for keeping your car clean and presentable every week.',
-            'suitability' => 'Perfect for cars in good condition that only need basic maintenance.',
-            'prices_by_size' => [
-                ['size' => 'Sedan', 'price' => 175],
-                ['size' => 'SUV', 'price' => 195],
-                ['size' => 'Full Size Truck/Van', 'price' => 215],
-                ['size' => 'XL/Elevated Vehicle', 'price' => 235]
-            ],
-            'aos_delay' => 200
-        ],
-        [
-            'name' => 'Full Detail (Interior + Exterior)',
-            'price' => 280,
-            'features' => [
-                ['name' => 'Hand wash with premium shampoo'],
-                ['name' => 'Pressure washer cleaning'],
-                ['name' => 'Thorough detailing by sections, including tires, nooks, and hidden corners'],
-                ['name' => 'Deep vacuuming + complete interior wipe cleaning plus ceramic exterior'],
-                ['name' => 'Plastic and glass conditioning'],
-                ['name' => 'Sparkling scent finish, like it just came from the dealership']
-            ],
-            'description' => "For clients who want a real transformation inside and out.",
-            'suitability' => null,
-            'prices_by_size' => [
-                ['size' => 'Sedan', 'price' => 280],
-                ['size' => 'SUV', 'price' => 300],
-                ['size' => 'Full Size Truck/Van', 'price' => 320],
-                ['size' => 'XL/Elevated Vehicle', 'price' => 340]
-            ],
-            'aos_delay' => 300
-        ],
-        [
-            'name' => 'Deep Interior & Exterior',
-            'price' => 320,
-            'features' => [
-                ['name' => 'Cat/dog hair removal'],
-                ['name' => 'Removal of tough stains, vomit, or spills'],
-                ['name' => 'Disinfection and odor neutralization'],
-                ['name' => 'Deep cleaning of seats, carpets, seatbelts, and headliner']
-            ],
-            'description' => '(Price may vary slightly depending on the level of dirt.)',
-            'suitability' => null,
-            'prices_by_size' => [
-                ['size' => 'Sedan', 'price' => 320],
-                ['size' => 'SUV', 'price' => 340],
-                ['size' => 'Full Size Truck/Van', 'price' => 360],
-                ['size' => 'XL/Elevated Vehicle', 'price' => 380]
-            ],
-            'aos_delay' => 400
-        ],
-        [
-            'name' => 'Detail + Professional Polish',
-            'price' => 390,
-            'features' => [
-                ['name' => 'Complete detailing'],
-                ['name' => 'Professional paint polishing'],
-                ['name' => 'Removal of minor scratches and scuffs'],
-                ['name' => 'Deep shine restoration']
-            ],
-            'description' => 'The best option for demanding cars and customers who want the best.',
-            'suitability' => null,
-            'prices_by_size' => [
-                ['size' => 'Sedan', 'price' => 390],
-                ['size' => 'SUV', 'price' => 410],
-                ['size' => 'Full Size Truck/Van', 'price' => 430],
-                ['size' => 'XL/Elevated Vehicle', 'price' => 450]
-            ],
-            'aos_delay' => 500
-        ]
-    ];
-    @endphp
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
-      @foreach ($packages as $package)
-      <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-sky-900/20 p-6 md:p-8 flex flex-col" data-aos="fade-up" data-aos-delay="{{ $package['aos_delay'] }}">
-        <div class="flex-grow">
-          <h3 class="text-3xl font-bold text-sky-400 mb-2">{{ $package['name'] }}</h3>
-          <p class="font-bold text-sky-300 mb-4">Starting From ${{ $package['price'] }}</p>
-
-          <ul class="space-y-2 text-slate-300 pl-1 mb-6">
-            {{-- BUCLE CORREGIDO --}}
-            @foreach ($package['features'] as $feature)
-              <li>{{ $feature['name'] }}</li>
-            @endforeach
-          </ul>
-
-          @if ($package['description'])
-            <p class="text-slate-400 text-sm mb-4">
-              {{ $package['description'] }}
-            </p>
-          @endif
-          @if ($package['suitability'])
-            <p class="text-slate-400 text-sm mb-6">
-              {{ $package['suitability'] }}
-            </p>
-          @endif
-
-          <div>
-            <h4 class="text-lg font-semibold text-slate-100 mb-3 border-t border-slate-700 pt-4">
-              Prices Starting At:
-            </h4>
-            <div class="space-y-2 text-sm">
-              @foreach ($package['prices_by_size'] as $index => $price_info)
-                <div class="flex justify-between items-center px-3 py-1.5 rounded-md {{ $index % 2 == 0 ? 'bg-slate-700/50' : '' }}">
-                  <span>{{ $price_info['size'] }}</span>
-                  <span class="font-semibold text-sky-300">${{ $price_info['price'] }}</span>
-                </div>
-              @endforeach
-            </div>
-          </div>
-        </div>
-        <a href="/services" class="mt-8 w-full text-center inline-block bg-sky-500 text-white uppercase font-bold rounded-lg px-6 py-3.5 hover:bg-sky-600 active:scale-95 transition-all duration-200 shadow-lg shadow-sky-500/30">
-          Schedule Now
-        </a>
-      </div>
-      @endforeach
-    </div>
-
-    <p class="mt-10 text-center text-sm text-slate-400" data-aos="fade-up" data-aos-delay="600">
-      <span class="font-semibold text-sky-400">Note:</span>
-      Customers can choose between gentle or strong cleaning products. We use quality shampoo for all washes.
-      For more info or custom quotes, tap the WhatsApp button.
-    </p>
-  </div>
-</section>
-
+<style>
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .group:hover {
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+  }
+</style>
 
 <section id="a-la-carte" class="bg-black text-slate-200 py-16 md:py-20 border-t border-slate-800">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
     <div class="text-center mb-10 md:mb-12">
       <h2 class="text-3xl sm:text-4xl font-bold text-sky-400" data-aos="fade-up">
-        A La Carte Services
+        Carte Services
       </h2>
       <p class="mt-3 text-md text-slate-400" data-aos="fade-up" data-aos-delay="100">
         Customize your detailing package with these add-ons.
@@ -1049,6 +689,89 @@
     </div>
   </div>
 </section>
+
+
+<section id="customer-reviews" class="bg-black text-slate-200 py-16 md:py-20 border-t border-slate-800" x-data="{ current: 0, reviews: 5 }" x-init="setInterval(() => { current = (current + 1) % reviews }, 7000)">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold text-sky-400" data-aos="fade-up">
+        What Our Clients Say
+      </h2>
+      <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        We take pride in providing exceptional service. Here's what some of our happy customers have to say about SUMACC.
+      </p>
+    </div>
+
+    <div class="relative overflow-hidden">
+      <div class="flex transition-transform duration-700 ease-in-out"
+        :style="'transform: translateX(-' + (current * 100) + '%)'"
+        style="width: 500%">
+        <template x-for="(review, index) in [
+          {
+            name: 'Marrisa Mora',
+            date: '2 Weeks Ago',
+            text: 'My Rav4 had needed a deep clean since I moved to Seattle six months ago. I found Sumacc this morning and reached out to ask about pricing and availability. Super happy I did!'
+          },
+          {
+            name: 'Yung Thach',
+            date: '1 Month Ago',
+            text: 'I contacted Sumacc on WhatsApp and got a fast reply. He came the same day and did a great job. I just needed one area cleaned where my cat had an accident. No more smell!'
+          },
+          {
+            name: 'Rietta S',
+            date: '3 Days Ago',
+            text: 'Got my car fully detailed today and it looks amazing. It was a big job and he was very thorough. He arrived on time and I’ve already scheduled our second vehicle for Friday!'
+          },
+          {
+            name: 'H',
+            date: '1 Week Ago',
+            text: 'Great service! Second time I used them to hand wash my car interior and exterior (first time to get rid of vomit smell as well)... They came to my place on time and they finished in 2 hrs. Car looks and smells great both times.'
+          },
+          {
+            name: 'Lindsay S',
+            date: '1 Day Ago',
+            text: 'Got me in same day. They did an excellent job restoring my car to a like-new condition despite the many crumbs and spills left by my kids.'
+          }
+        ]" :key="index">
+          <div class="min-w-full px-4">
+            <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-sky-900/20 p-6 flex flex-col h-full">
+              <div class="mb-4">
+                <h5 class="font-semibold text-slate-100" x-text="review.name"></h5>
+                <p class="text-xs text-slate-500" x-text="review.date"></p>
+              </div>
+              <div class="flex items-center mb-3">
+                <template x-for="i in 5">
+                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </template>
+              </div>
+              <p class="text-slate-300 leading-relaxed text-sm flex-grow" x-text="review.text"></p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-2 mt-6">
+      <template x-for="(dot, i) in reviews" :key="i">
+        <button @click="current = i"
+          class="w-3 h-3 rounded-full"
+          :class="current === i ? 'bg-sky-400' : 'bg-slate-600'"></button>
+      </template>
+    </div>
+
+    <div class="text-center mt-12 md:mt-16" data-aos="fade-up" data-aos-delay="500">
+      <a href="https://g.co/kgs/NJo3rQr" target="_blank" rel="noopener noreferrer"
+        class="inline-block px-8 py-3.5 bg-transparent border-2 border-sky-500 text-sky-400 text-sm font-semibold uppercase rounded-lg
+               transform transition-all duration-300 ease-in-out
+               hover:bg-sky-500 hover:text-black hover:shadow-lg hover:shadow-sky-500/30 active:scale-95">
+        Read More Reviews on Google
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <section id="quality-products" class="bg-black text-slate-200 py-16 md:py-20 border-t border-slate-800">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
@@ -1227,5 +950,7 @@
     </div>
   </div>
 </section>
+
+
 
 @endsection

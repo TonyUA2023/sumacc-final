@@ -46,45 +46,76 @@
 
     {{-- Nav Desktop --}}
     <nav class="hidden md:flex items-center gap-6 lg:gap-8 uppercase font-medium tracking-wider">
+      {{-- Home --}}
+      <a
+        href="{{ route('public.index') }}"
+        @mouseenter="hoveredLink = '#hero'"
+        @mouseleave="hoveredLink = ''"
+        class="relative text-sm group transition-colors duration-200"
+        :class="scrolled
+          ? (activeSection === '#hero' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300')
+          : (activeSection === '#hero' ? 'text-sky-400' : 'text-slate-100 hover:text-white')"
+        data-aos="fade-down" data-aos-duration="700" data-aos-delay="200"
+      >
+        <span>Home</span>
+        <span
+          class="absolute left-0 -bottom-1.5 h-0.5 bg-sky-400 transition-all duration-300 ease-out"
+          :style="(activeSection === '#hero' || hoveredLink === '#hero') ? 'width: 100%' : 'width: 0%'"
+        ></span>
+      </a>
+
+      {{-- Categorías de Servicios --}}
+      @foreach($headerData['serviceCategories'] as $index => $category)
       @php
-        $navItems = [
-          ['url' => route('public.index'), 'label' => 'Home', 'id_section' => '#hero'],
-          ['url' => route('public.services'), 'label' => 'Services', 'id_section' => '#services'],
-          ['url' => route('public.extra-services'), 'label' => 'Extra Services', 'id_section' => '#a-la-carte'],
-          ['url' => route('public.contact'), 'label' => 'Contact', 'id_section' => '#contact'],
-        ];
+        $categoryId = 'category-' . $category->id;
       @endphp
-      @foreach ($navItems as $index => $item)
-        <a
-          href="{{ $item['url'] }}"
-          @mouseenter="hoveredLink = '{{ $item['id_section'] }}'"
-          @mouseleave="hoveredLink = ''"
-          class="relative text-sm group transition-colors duration-200"
-          :class="scrolled
-            ? (activeSection === '{{ $item['id_section'] }}' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300')
-            : (activeSection === '{{ $item['id_section'] }}' ? 'text-sky-400' : 'text-slate-100 hover:text-white')"
-          data-aos="fade-down" data-aos-duration="700" data-aos-delay="{{ 200 + ($index * 50) }}"
-        >
-          <span>{{ $item['label'] }}</span>
-          <span
-            class="absolute left-0 -bottom-1.5 h-0.5 bg-sky-400 transition-all duration-300 ease-out"
-            :style="(activeSection === '{{ $item['id_section'] }}' || hoveredLink === '{{ $item['id_section'] }}') ? 'width: 100%' : 'width: 0%'"
-          ></span>
-        </a>
+      <a
+        href="{{ route('public.services.category', $category->slug) }}"
+        @mouseenter="hoveredLink = '{{ $categoryId }}'"
+        @mouseleave="hoveredLink = ''"
+        class="relative text-sm group transition-colors duration-200"
+        :class="scrolled
+          ? (activeSection === '#services' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300')
+          : (activeSection === '#services' ? 'text-sky-400' : 'text-slate-100 hover:text-white')"
+        data-aos="fade-down" data-aos-duration="700" data-aos-delay="{{ 250 + ($index * 50) }}"
+      >
+        <span>{{ $category->name }}</span>
+        <span
+          class="absolute left-0 -bottom-1.5 h-0.5 bg-sky-400 transition-all duration-300 ease-out"
+          :style="(hoveredLink === '{{ $categoryId }}') ? 'width: 100%' : 'width: 0%'"
+        ></span>
+      </a>
       @endforeach
+
+      {{-- Contact --}}
+      <a
+        href="/#contact"
+        @mouseenter="hoveredLink = '#contact'"
+        @mouseleave="hoveredLink = ''"
+        class="relative text-sm group transition-colors duration-200"
+        :class="scrolled
+          ? (activeSection === '#contact' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300')
+          : (activeSection === '#contact' ? 'text-sky-400' : 'text-slate-100 hover:text-white')"
+        data-aos="fade-down" data-aos-duration="700" data-aos-delay="{{ 350 + (count($headerData['serviceCategories']) * 50) }}"
+      >
+        <span>Contact</span>
+        <span
+          class="absolute left-0 -bottom-1.5 h-0.5 bg-sky-400 transition-all duration-300 ease-out"
+          :style="(activeSection === '#contact' || hoveredLink === '#contact') ? 'width: 100%' : 'width: 0%'"
+        ></span>
+      </a>
     </nav>
 
-    {{-- CTA Desktop --}}
-    <a
-      href="https://wa.link/gemzk6" target="_blank" rel="noopener noreferrer"
-      class="hidden lg:inline-block py-2.5 px-7 rounded-full text-sm font-bold transition-all transform duration-300 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black"
-      :class="scrolled
-        ? 'bg-sky-500 hover:bg-sky-400 text-white hover:scale-105 ring-sky-500'
-        : 'bg-sky-500/90 hover:bg-sky-500 text-white hover:scale-105 ring-sky-500/90'"
-      data-aos="fade-left" data-aos-duration="700" data-aos-delay="{{ 200 + (count($navItems) * 50) }}"
-    >
-      Contact Us
-    </a>
+    {{-- CTA Desktop - Book Now --}}
+    <div class="hidden lg:flex items-center">
+      <a
+        href="{{ route('public.services') }}"
+        class="py-2.5 px-6 rounded-full text-sm font-bold transition-all transform duration-300 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black bg-emerald-500 hover:bg-emerald-400 text-white hover:scale-105 ring-emerald-500"
+        data-aos="fade-left" data-aos-duration="700" data-aos-delay="400"
+      >
+        Book Now
+      </a>
+    </div>
 
     {{-- Hamburger Mobile --}}
     <button
@@ -114,48 +145,74 @@
     x-cloak
   >
     <ul class="flex flex-col items-center gap-y-5 text-center uppercase text-base tracking-wider">
-      @php
-        $mobileNavItems = [
-            ['url' => route('public.index'), 'label' => 'Home', 'id_section' => '#hero'],
-            ['url' => route('public.services'), 'label' => 'Services', 'id_section' => '#services'],
-            ['url' => route('public.extra-services'), 'label' => 'Extra Services', 'id_section' => '#a-la-carte'],
-            ['url' => route('public.contact'), 'label' => 'Contact', 'id_section' => '#contact'],
-        ];
-      @endphp
-      
-      @foreach ($mobileNavItems as $index => $item)
+      {{-- Home --}}
       <li x-show="open"
           x-transition:enter="transition ease-out duration-300"
-          :style="{ transitionDelay: `{{ 50 + ($index * 75) }}ms` }"
+          :style="{ transitionDelay: '50ms' }"
           x-transition:enter-start="opacity-0 transform translate-y-3"
-          x-transition:enter-end="opacity-100 transform translate-y-0">
-        
+          x-transition:enter-end="opacity-100 transform translate-y-0"
+          class="w-full">
         <a 
-          href="{{ $item['url'] }}"
-          class="font-medium py-2 transition-colors duration-200"
-          :class="activeSection === '{{ $item['id_section'] }}' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300'"
+          href="{{ route('public.index') }}"
+          class="block font-medium py-2 transition-colors duration-200"
+          :class="activeSection === '#hero' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300'"
           @click="open = false"
         >
-          {{ $item['label'] }}
+          Home
+        </a>
+      </li>
+
+      {{-- Categorías de Servicios - Versión móvil --}}
+      @foreach($headerData['serviceCategories'] as $index => $category)
+      <li x-show="open"
+          x-transition:enter="transition ease-out duration-300"
+          :style="{ transitionDelay: '{{ 100 + ($index * 75) }}ms' }"
+          x-transition:enter-start="opacity-0 transform translate-y-3"
+          x-transition:enter-end="opacity-100 transform translate-y-0"
+          class="w-full">
+        <a 
+          href="{{ route('public.services.category', $category->slug) }}"
+          class="block font-medium py-2 transition-colors duration-200 text-slate-200 hover:text-sky-300"
+          @click="open = false"
+        >
+          {{ $category->name }}
         </a>
       </li>
       @endforeach
 
-      {{-- SECCIÓN CORREGIDA --}}
+      {{-- Contact --}}
+      <li x-show="open"
+          x-transition:enter="transition ease-out duration-300"
+          :style="{ transitionDelay: '{{ 200 + (count($headerData['serviceCategories']) * 75) }}ms' }"
+          x-transition:enter-start="opacity-0 transform translate-y-3"
+          x-transition:enter-end="opacity-100 transform translate-y-0"
+          class="w-full">
+        <a 
+          href="/#contact"
+          class="block font-medium py-2 transition-colors duration-200"
+          :class="activeSection === '#contact' ? 'text-sky-400' : 'text-slate-200 hover:text-sky-300'"
+          @click="open = false"
+        >
+          Contact
+        </a>
+      </li>
+
+      {{-- CTA Button for Mobile --}}
       @php
-        $finalDelay = 50 + (count($mobileNavItems) * 75);
+        $finalDelay = 250 + (count($headerData['serviceCategories']) * 75);
       @endphp
       <li x-show="open"
           x-transition:enter="transition ease-out duration-300"
-          :style="{ transitionDelay: `{{ $finalDelay }}ms` }"
+          :style="{ transitionDelay: '{{ $finalDelay }}ms' }"
           x-transition:enter-start="opacity-0 transform translate-y-3"
           x-transition:enter-end="opacity-100 transform translate-y-0"
           class="pt-4">
         <a
-          href="https://wa.link/gemzk6" target="_blank" rel="noopener noreferrer"
-          class="py-3 px-8 rounded-full font-bold bg-sky-500 hover:bg-sky-400 text-white transition-all transform hover:scale-105 duration-300 ease-in-out"
+          href="{{ route('public.services') }}"
+          class="py-3 px-8 rounded-full font-bold bg-emerald-500 hover:bg-emerald-400 text-white transition-all transform hover:scale-105 duration-300 ease-in-out mx-auto"
+          @click="open = false"
         >
-          Contact Us
+          Book Now
         </a>
       </li>
     </ul>

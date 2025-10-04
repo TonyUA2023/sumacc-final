@@ -16,18 +16,17 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtener IDs para las relaciones
+        // Get IDs for relationships
         $categories = ServiceCategory::pluck('id', 'name');
         $vehicleTypes = VehicleType::pluck('id', 'name');
 
         $servicesData = [
-            // ... (todo tu array de datos de servicios permanece igual)
-             // === SERVICIOS DE PREMIUM DETAILING ===
-             [
+            // === PREMIUM DETAILING SERVICES ===
+            [
                 'category' => 'Premium Detailing',
                 'name' => 'Premium Interior Detail',
                 'base_duration_hours' => 2.5,
-                'recommendation' => 'Sugerido cada 3-5 meses o después de largos periodos sin un detallado profundo.',
+                'recommendation' => 'Suggested every 3-5 months or after long periods without a deep detail.',
                 'features' => [
                     'Interior Detail' => [
                         'Thorough Vacuuming', 'Shampoo Door Panels, Headliner, All Carpets & Mats',
@@ -41,12 +40,45 @@ class ServiceSeeder extends Seeder
                     'Full Size Truck/Van' => 320.00, 'XL/Lifted Vehicle' => 340.00,
                 ]
             ],
+            // NEW SERVICE ADDED
+            [
+                'category' => 'Premium Detailing',
+                'name' => 'Premium Exterior Detail',
+                'base_duration_hours' => 2.0,
+                'notes' => 'Focuses exclusively on restoring and protecting the vehicle\'s exterior. Ideal for removing light scratches and achieving a deep, long-lasting shine.',
+                'recommendation' => 'Recommended every 4-6 months to maintain paint integrity and a showroom finish.',
+                'features' => [
+                    'Exterior Detail' => [
+                        'Gentle Hand Car Wash',
+                        'Bug and Tar Removal',
+                        'Claybar Exterior Paint',
+                        'Single-Stage Machine Polish to enhance gloss and remove minor swirls',
+                        'Paint Sealant for long-lasting protection',
+                        'Hand Wax with Carnauba Paste Wax',
+                        'Clean Wheels & Wheel Wells',
+                        'Dress Tires',
+                        'Condition Plastic Trim',
+                        'Clean Door, Trunk & Hood Jambs',
+                        'Clean Windows Inside & Out',
+                    ],
+                    'Interior Detail' => [
+                        '* Complementary vacuum only.',
+                    ]
+                ],
+                'prices' => [
+                    'Cars/Wagons' => 260.00,
+                    'SUV' => 270.00,
+                    'Full Size SUV' => 290.00,
+                    'Full Size Truck/Van' => 310.00,
+                    'XL/Lifted Vehicle' => 330.00,
+                ]
+            ],
             [
                 'category' => 'Premium Detailing',
                 'name' => 'Advanced Full Detail',
                 'base_duration_hours' => 2.5,
-                'notes' => 'Limpieza profunda con protección cerámica añadida. Perfecto para suciedad moderada o si ha pasado más de un mes desde el último detallado.',
-                'recommendation' => 'Recomendado cada 2 a 4 semanas para un mantenimiento impecable.',
+                'notes' => 'Deep cleaning with added ceramic protection. Perfect for moderate dirt or if it has been more than a month since the last detail.',
+                'recommendation' => 'Recommended every 2 to 4 weeks for impeccable maintenance.',
                 'features' => [
                     'Exterior Cleaning' => ['Gentle Hand-Wash with Ceramic Shampoo', 'Hand Washed with a Coat of Carnauba', 'Exterior Glass Cleaned', 'Deep Clean Wheels & Wells', 'Dress and Shine Tires and Clean Exhaust Tips'],
                     'Interior Cleaning' => ['Interior and deep trunk vacuum cleaner', 'Complete Interior Detail', 'Interior Glass Cleaned', 'Wipe Down Door Jambs', 'Clean cup holders and clean rubber mats with Steam', 'Upholstery Cleaning', 'Cleaning Tables and Vents with Steam'],
@@ -60,8 +92,8 @@ class ServiceSeeder extends Seeder
                 'category' => 'Premium Detailing',
                 'name' => 'Premium Full Detail',
                 'base_duration_hours' => 3.0,
-                'notes' => 'Restaura el brillo y elegancia original de su vehículo. Limpieza profunda de interiores, eliminando manchas y olores, y protegiendo todas las superficies.',
-                'recommendation' => 'Ideal cada 3-5 meses para una experiencia de auto como nuevo.',
+                'notes' => 'Restores your vehicle\'s original shine and elegance. Deep cleaning of interiors, removing stains and odors, and protecting all surfaces.',
+                'recommendation' => 'Ideal every 3-5 months for a like-new car experience.',
                 'features' => [
                     'Exterior Detail' => ['Per Foam Wash', 'Gentle Hand Car Wash', 'Clean Wheel & Wheel Wells', 'Clean Engine Bay', 'Clean Door, Trunk & Hood Jambs', 'Bug and Tar Removal', 'Wax with 1 Coat of Carnauba (Applied by Hand)', 'Clean Windows Inside & Out', 'Conditioner, Clean Exhaust Tips'],
                     'Interior Detail' => ['Thorough Vacuuming', 'Shampoo Door Panels, Headliner, All Carpets & Mats', 'Clean Seat Rails', 'Clean & Protect All Leather', 'Detailing Dash & Vents', 'Trunk Detail', 'Clean All Windows', 'Minor Stain Cleaning', 'Premium air freshener', 'Interior UV protection', 'Elimination of bad odors caused by pets'],
@@ -75,8 +107,8 @@ class ServiceSeeder extends Seeder
                 'category' => 'Premium Detailing',
                 'name' => 'Executive Detail Polish & Premium',
                 'base_duration_hours' => 4.0,
-                'notes' => 'Nuestro servicio más exclusivo. Restaura el brillo original, elimina imperfecciones y protege a largo plazo con un acabado impecable.',
-                'recommendation' => 'Recomendado cada 2-5 meses para mantener una condición de exhibición.',
+                'notes' => 'Our most exclusive service. Restores the original shine, removes imperfections, and provides long-term protection with a flawless finish.',
+                'recommendation' => 'Recommended every 2-5 months to maintain a showroom condition.',
                 'features' => [
                     'Exterior Detail' => ['Gentle Hand Car Wash', 'Clean Wheels & Wheel Wells', 'Clean Engine Bay', 'Clean Door, Trunk & Hood Jambs', 'Bug and Tar Removal', 'Paint Sealant', 'Single-State Machine Polish w/Swirl Removal', 'Wax w/1 - Coat of Carnauba (Applied by Hand)', 'Condition Plastic Trim', 'Polish Chrome and Trim', 'Clean Exhaust Tips', 'Dress Tires', 'Paint Correction [upon request]'],
                     'Interior Detail' => ['Thorough Vacuuming', 'Shampoo Door Panels, Headliner, All Carpets & Mats', 'Clean Seat Rails', 'Clean & Protect All Leather', 'Detailing Dash & Vents', 'Trunk Detail', 'Clean All Windows', 'Minor Stain Cleaning', 'Premium air freshener', 'Interior UV protection', 'Elimination of bad odors caused by pets'],
@@ -86,13 +118,14 @@ class ServiceSeeder extends Seeder
                     'Full Size Truck/Van' => 510.00, 'XL/Lifted Vehicle' => 560.00,
                 ]
             ],
-            // === SERVICIOS DE HAND SUPER WASH ===
+
+            // === HAND SUPER WASH SERVICES ===
             [
                 'category' => 'Hand Super Wash',
-                'name' => 'Basic Super Wash',
+                'name' => 'Full Super Wash',
                 'base_duration_hours' => 1.5,
-                'notes' => 'Mantiene su vehículo limpio y en excelentes condiciones. Ideal para la suciedad ligera del día a día.',
-                'recommendation' => 'Recomendado cada 1 a 2 semanas.',
+                'notes' => 'Keeps your vehicle clean and in excellent condition. Ideal for light, everyday dirt.',
+                'recommendation' => 'Recommended every 1 to 2 weeks.',
                 'features' => [
                     'Exterior Cleaning' => ['Gentle Hand Car Wash with Shampoo', 'Exterior Glass Cleaned', 'Clean Exhaust Tips', 'Clean Wheel Wells', 'Clean Wheels', 'Dress and Shine Tires'],
                     'Interior Cleaning' => ['Deep vacuuming of the interior and trunk', 'Interior Spiff', 'Interior Glass Cleaned', 'Wipe Down Door Jambs', 'Clean Cup Holders, and Clean Rubber Floor Mats', 'Upholstery Cleaning', 'Cleaning Boards and Ventilation Grills'],
@@ -104,19 +137,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'category' => 'Hand Super Wash',
-                'name' => 'Basic Interior Service',
-                'base_duration_hours' => 1.0,
-                'features' => [
-                    'Interior Cleaning' => ['Deep vacuuming of the interior and trunk', 'Interior Spiff', 'Interior Glass Cleaned', 'Wipe Down Door Jambs', 'Clean Cup Holders, and Clean Rubber Floor Mats', 'Upholstery Cleaning', 'Cleaning Boards and Ventilation Grills'],
-                ],
-                'prices' => [
-                    'Cars/Wagons' => 130.00, 'SUV' => 140.00, 'Full Size SUV' => 160.00,
-                    'Full Size Truck/Van' => 180.00, 'XL/Lifted Vehicle' => 200.00,
-                ]
-            ],
-            [
-                'category' => 'Hand Super Wash',
-                'name' => 'Basic Exterior Wash',
+                'name' => 'Full Exterior Wash',
                 'base_duration_hours' => 1.0,
                 'features' => [
                     'Exterior Cleaning' => ['Gentle Hand Car Wash with Shampoo', 'Exterior Glass Cleaned', 'Clean Exhaust Tips', 'Clean Wheel Wells', 'Clean Wheels', 'Dress and Shine Tires'],
@@ -130,8 +151,8 @@ class ServiceSeeder extends Seeder
                 'category' => 'Hand Super Wash',
                 'name' => 'Ceramic Maintenance Wash',
                 'base_duration_hours' => 1.5,
-                'notes' => 'Lavado especial para vehículos con recubrimiento cerámico. Mantiene el brillo y la protección sin dañar el sellador.',
-                'recommendation' => 'Sugerido cada 2 a 4 semanas para maximizar la vida del cerámico.',
+                'notes' => 'Special wash for vehicles with ceramic coating. Maintains shine and protection without damaging the sealant.',
+                'recommendation' => 'Suggested every 2 to 4 weeks to maximize the life of the ceramic coating.',
                 'features' => [
                     'Exterior Cleaning' => ['Gentle Hand Car Wash', 'Exterior Glass Cleaned', 'Clean Wheels & Tires', 'Dress Tires', 'Ceramic Boost Sealant'],
                     'Interior Cleaning' => ['Interior & Trim, Vacuum', 'Interior Spiff', 'Interior Glass', 'Wipe down Door Jambs, Cup Holders, Rubber Floor Mats'],
@@ -145,7 +166,7 @@ class ServiceSeeder extends Seeder
                 'category' => 'Hand Super Wash',
                 'name' => 'Deluxe Wash & Wax',
                 'base_duration_hours' => 2.5,
-                'recommendation' => 'Recomendado cada 3-5 meses para una protección duradera.',
+                'recommendation' => 'Recommended every 3-5 months for lasting protection.',
                 'features' => [
                     'Exterior Detail' => ['Per Foam Wash', 'Gentle Hand Car Wash', 'Clean Wheels & Wheel Wells', 'Clean Engine Bay', 'Clean Door, Trunk & Hood Jambs', 'Bug and Tar Removal', 'Spot Clean Interior', 'Claybar Exterior Paint', 'Hand Wax with Carnauba Paste Wax (Ask About Ceramic Coatings 3-6 month Protection)', 'Clean Windows Inside & Out', 'Conditioner, Clean Exhaust Tips'],
                     'Interior Detail' => ['* Complementary vacuum only.'],
@@ -165,7 +186,7 @@ class ServiceSeeder extends Seeder
                     'base_duration_hours' => $data['base_duration_hours'],
                     'notes' => $data['notes'] ?? null,
                     'recommendation' => $data['recommendation'] ?? null,
-                    // CORRECCIÓN: Se elimina json_encode() porque el modelo ya lo maneja con $casts
+                    // CORRECTION: json_encode() is removed because the model already handles it with $casts
                     'features' => $data['features'],
                     'image_path' => '/images/services/' . \Illuminate\Support\Str::slug($data['name']) . '.jpg',
                     'is_active' => true,

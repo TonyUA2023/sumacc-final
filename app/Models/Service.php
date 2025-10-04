@@ -12,7 +12,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
+        'category_id', // ← Asegúrate de que este campo existe
         'name',
         'base_duration_hours',
         'notes',
@@ -29,10 +29,11 @@ class Service extends Model
 
     /**
      * Un servicio pertenece a una categoría.
+     * ESPECIFICAMOS EXPLÍCITAMENTE LA CLAVE FORÁNEA
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(ServiceCategory::class);
+        return $this->belongsTo(ServiceCategory::class, 'category_id'); // ← AQUÍ ESTÁ LA CORRECCIÓN
     }
 
     /**

@@ -14,10 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // El orden es crucial para que las llaves foráneas funcionen
         $this->call([
-            UserSeeder::class,
-            ServiceCategorySeeder::class, // Debe ir antes que ServiceSeeder
-            VehicleTypeSeeder::class,   // Debe ir antes que ServiceSeeder
-            ServiceSeeder::class,       // Al final, ya que depende de los anteriores
+            ExtraServiceSeeder::class      // Al final, ya que depende de los anteriores
         ]);
     }
 }

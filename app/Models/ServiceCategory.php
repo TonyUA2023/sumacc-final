@@ -19,11 +19,21 @@ class ServiceCategory extends Model
     
     public $timestamps = false;
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
     /**
      * Una categoría tiene muchos servicios.
+     * ESPECIFICAMOS EXPLÍCITAMENTE LA CLAVE FORÁNEA
      */
     public function services(): HasMany
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Service::class, 'category_id'); // ← AQUÍ ESTÁ LA CORRECCIÓN
     }
 }
